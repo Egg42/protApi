@@ -44,7 +44,7 @@ app.use(xss());
 app.use(errorHandler);
 
 // start server
-const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
-const server = app.listen(port, function () {
-    console.log('Server listening on port ' + port);
+const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 8080) : 4000;
+const server = app.listen(8080, '172.30.112.186'. function () {
+    console.log('Server listening on port 8080');
 });
