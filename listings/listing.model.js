@@ -3,11 +3,16 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
 
-	title: { type: String, required: true },
-    desc: { type: String, required: true },
-    location: { type: String, required: false },
-    status: { type: String, required: false },
-    images: { yupr: Array, required: false },
+	address: { type: String, required: true },
+    city: { type: String, required: true },
+    bath: {type: String, required: true},
+    bed: {type: String, required: false },
+    parking: {type: String, required: false},
+    space: {type: String, required: true },
+   	price: {type: String, required: true},
+    location: { type: String, required: true },
+    status: { type: String, required: true },
+    images: { type: Array, required: false },
     createdDate: { type: Date, default: Date.now }
 });
 

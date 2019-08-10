@@ -1,4 +1,4 @@
 {
-	"conectionString" : "mongodb://moj042:Urban18@ds259351.mlab.com:59351/urbanfarmdb",
+	"conectionString" : "mongodb://localhost/real-estate",
 	"secret": "850BDA92470637759710B3FD1C5FB8E124DF0C90652CD2B7D3D2FEBE5ADF36CC401FF235B0D6B89BC32A813BC93E7F48E5453CBDCFCD7C3DC3804978519FAFEE"
 }

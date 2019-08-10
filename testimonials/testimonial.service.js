@@ -25,12 +25,12 @@ async function create(dataParam) {
     //if (await Testimonial.findOne({ person: dataParam.person })) {
     //    throw '"' + dataParam.pserson + '" already gave a testimony';
     //}
-    console.log('New Testimony from: ' + dataParam.person);
-    console.log('Saying "' + dataParam.quote + '" ' );
+    
     const data = new Testimonial(dataParam);
 
     // save data
     await data.save();
+    return await Testimonial.find();
 }
 
 async function update(id, dataParam) {

@@ -14,7 +14,8 @@ module.exports = {
 
 
 async function getAll() {
-    return await Listing.find().select();
+    
+    return await Listing.find();
 }
 
 async function getById(id) {
@@ -23,14 +24,15 @@ async function getById(id) {
 
 async function create(listingParam) {
     // validate
-
-    const listing = new Listing(listingParam);
+    
+    const data = new Listing(listingParam);
 
     // Sanatize Data Here
  
 
     // save user
-    await listing.save();
+    await data.save();
+    return await Listing.find();
 }
 
 async function update(id, listingParam) {

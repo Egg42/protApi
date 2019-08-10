@@ -9,13 +9,16 @@ function jwt() {
     return expressJwt({ secret, isRevoked }).unless({
         path: [
             // public routes that don't require authentication
-            '/users/authenticate',
-            '/users/register',
-            '/testimonial/index',
-             new RegExp('/testimonial/testimonial/listing/*', 'i'),
-            '/listings/index',
-            new RegExp('/listings/listing/*', 'i'),
-            '/',
+'/api/users/authenticate',
+            '/api/users/register',
+            '/api/testimonial/index',
+             /api\/testimonial\/testimonial\/listing/i,
+            '/api/listings/index',
+            '/api/uploads/upload',
+            '/api/uploads',
+             /\/uploads\/image/i,
+              /\/uploads\/file/i,
+            new RegExp('/api/listings/listing/*', 'i'),
         ]
     });
 }

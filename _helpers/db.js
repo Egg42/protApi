@@ -1,7 +1,9 @@
 const config = require('../config.json');
 const mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
-mongoose.connect( config.conectionString, { useCreateIndex: true, useNewUrlParser: true });
+mongoose.set('multi', true);
+
+mongoose.connect( config.conectionString, {  useCreateIndex: true, useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 module.exports = {
@@ -9,4 +11,5 @@ module.exports = {
     Listing: require('../listings/listing.model'),
     Message: require('../messages/message.model'),
     Testimonial: require('../testimonials/testimonial.model'),
+    Image: require('../upload/upload.model'),
 };
