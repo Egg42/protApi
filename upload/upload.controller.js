@@ -31,6 +31,7 @@ function upload(req,res) {
           console.log(images);
           res.json(images)})
         .catch(err => res.json(err));
+        
     /*  } else if (req.files['employee'] != null ){
          uploadService.upload(req.files['employee'][0])
         .then((images) => {
