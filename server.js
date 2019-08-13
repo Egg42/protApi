@@ -25,10 +25,10 @@ var storage = multer.diskStorage({
 })
 
 var upload = multer({ storage: storage })
+ 
 
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.json({limit: '20mb', extended: true}));
 
 app.use(cors());
 app.use(helmet());
@@ -42,16 +42,16 @@ const limit = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 Hour of 'ban' / lockout 
     message: 'Too many requests' // message to send
 });
-app.use(express.json({ limit: '10kb' }));
+app.use(express.json({limit: '10mb', extended: true}));
 app.use(mongoSanitize());
 app.use(xss());
 app.use(express.static(path.join(__dirname, 'dist')));
-// api routes upload.fields([{ name: 'employee', maxCount: 1 }, { name: 'myFile', maxCount: 8 }])
+
 app.use('/api/users', jwt(),require('./users/users.controller') );
 app.use('/api/listings', jwt(), require('./listings/listing.controller'));
 app.use('/api/messages', jwt(),require('./messages/messages.controller'));
 app.use('/api/testimonial', jwt(),require('./testimonials/testimonial.controller'));
-app.use('/api/uploads', upload.array('myFile'),jwt(), require('./upload/upload.controller'));
+// app.use('/api/uploads',jwt(), upload.array('myFile'), require('./upload/upload.controller'));
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/dist/index.html'));
 });

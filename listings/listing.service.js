@@ -31,7 +31,12 @@ async function create(listingParam) {
  
 
     // save user
-    await data.save();
+    await data.save()
+/*
+    .then( (result, error) => {
+        if (error) return {error: error};
+        else return { submitted: true, listing: result}
+    });*/
     return await Listing.find();
 }
 

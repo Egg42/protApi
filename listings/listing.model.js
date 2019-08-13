@@ -12,7 +12,21 @@ const schema = new Schema({
    	price: {type: String, required: true},
     location: { type: String, required: true },
     status: { type: String, required: true },
-    images: { type: Array, required: false },
+    images: [ {contentType: {
+        type: String,
+        default: "none",
+        required: false
+    },
+    data: {
+        type: Buffer, 
+        required: false
+    },
+
+    baseName: {
+        type: String,
+        required: false
+        
+    } } ],
     createdDate: { type: Date, default: Date.now }
 });
 
